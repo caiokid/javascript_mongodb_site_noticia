@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+    <link rel="stylesheet" href="/public/style.css">
+
+</head>
+<body>
+    <div class="header-painel">
+        <h2>Cadastro de Notícias</h2>
+    </div>
+
+    <form enctype="multipart/form-data"  class="alone" action="/admin/cadastro" method="post">
+        <h3>Título:</h3>
+        <input name="titulo" type="text" />
+        <h3>Conteudo:</h3>
+        <textarea name="conteudo" ></textarea>
+        <h3>Título para pesquisa:</h3>
+        <input name="slug" type="text" />
+        <h3>Escolha a foto:</h3>
+        <input type="file" name="arquivo" style="margin-left: 20px;margin-bottom: 20px ">
+        <input style="margin-top:20px"  type="submit" name="acao" value="Cadastrar" />
+    </form>
+    <br><br>
+    <div class="header-painel">
+        <h2>Listando Notícias</h2>
+    </div>
+        
+    <% for(let i = 0; i < postsTop.length; i++) { %>
+         
+      <div class="noticia-d">
+        <p> <%= postsTop[i].titulo %> </p>
+        <a href="/admin/deletar/<%= postsTop[i].id %>">(x)</a>
+      </div>
+      <% } %>     
+</body>
+</html>
+
+
